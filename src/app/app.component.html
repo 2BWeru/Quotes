@@ -8,7 +8,9 @@
    </div>
    <div class="container-fluid">
        <ul>
-           <li *ngFor='let quote of quotes'>{{quote.topic}}</li>
+         <li *ngFor="let quote for quotes"> 
+             {{quote.topic}} 
+            </li>
            
        </ul>
    </div>
