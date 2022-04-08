@@ -15,7 +15,7 @@ export class AppComponent{
   //  constructor(){
   //    this.quotes = ['People often say that motivation doesnt', 'last Well neither does bathing', 'that is why we recommend it daily.' ,'Zig Ziglar']
   //  }
-    quotes:Quotes[]=[
+    quote:Quotes[]=[
        {about:'Everyone lives by selling something', name:'Jessica', aurthor:'Robert Louis Stevenson'},
        {about: 'Hire character train skill' , name:'Lazzo' , aurthor:'Peter Schutz'},
        {about:'Beware of monotony; it is the mother of all the deadly sins.',name:'Isaac',aurthor:'Edith Wharton'},
