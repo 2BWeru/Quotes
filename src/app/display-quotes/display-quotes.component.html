@@ -5,7 +5,7 @@
        {{quote.about}}  
        </li>
         <p *ngIf='quotes.length > 5'> Your quotes are too many</p> -->
-    <!-- </ul> --> -->
+    <!-- </ul> --> 
        <p>display</p>
        <div class="row" *ngFor="let quote of quotes">
            <div class="col-md-4">
@@ -13,7 +13,7 @@
             </div> 
             <div class="cont">
                 <app-display-content [quote]='quote'></app-display-content>
-            </div>
+            </div> 
          </div>  
 
 

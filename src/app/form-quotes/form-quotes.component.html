@@ -2,19 +2,19 @@
 <p>{{place}}</p>
 
 <div class="container">
-    <form #submitQuotes="ngForm">
+    <form #userlogin="ngForm" (ngSubmit) = "displayQuote()" >
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Name" aria-label="Name">
+            <input type="text" class="form-control"  ngModel placeholder="Name" aria-label="Name">
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Author's Name" aria-label="Author's name">
+            <input type="text" class="form-control"   ngModel placeholder="Author's Name" aria-label="Author's name">
         </div>
     </div>
     <div class="quote">
         <label for="Quote">Write your Quote </label>
         <br>
-            <textarea placeholder="Quote..."></textarea>
+            <textarea  ngModel placeholder="Quote..."></textarea>
     </div>
     <div class="btn">
         <button type="submit" class="btn btn-success">Add Quote</button>

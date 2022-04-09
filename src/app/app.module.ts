@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormQuotesComponent } from './form-quotes/form-quotes.component';
 import { DisplayQuotesComponent } from './display-quotes/display-quotes.component';
 import { DisplayContentComponent } from './display-content/display-content.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DisplayContentComponent } from './display-content/display-content.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
