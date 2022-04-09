@@ -8,14 +8,14 @@ import {Quote} from '../quote'
 })
 export class DisplayQuotesComponent implements OnInit {
     
-  
-  constructor() { }
 
      quotes:Quote[]=[
       {about:'Everyone lives by selling something', 
       name:'Jessica', 
       aurthor:'Robert Louis Stevenson',
       },
+    
+    
 
       {about:'Hire character train skill', 
        name:'Lazzo', 

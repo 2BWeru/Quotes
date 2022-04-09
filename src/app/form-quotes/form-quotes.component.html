@@ -2,6 +2,7 @@
 <p>{{place}}</p>
 
 <div class="container">
+    <form #submitQuotes="ngForm">
     <div class="row">
         <div class="col">
             <input type="text" class="form-control" placeholder="Name" aria-label="Name">
@@ -16,7 +17,9 @@
             <textarea placeholder="Quote..."></textarea>
     </div>
     <div class="btn">
-        <button>like</button><br>
-        <button>dislike</button>
+        <button type="submit" class="btn btn-success">Add Quote</button>
+     </div>
+    
+    </form>
+        
     </div>
-</div>
