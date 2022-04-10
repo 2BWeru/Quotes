@@ -7,13 +7,15 @@ import { FormQuotesComponent } from './form-quotes/form-quotes.component';
 import { DisplayQuotesComponent } from './display-quotes/display-quotes.component';
 import { DisplayContentComponent } from './display-content/display-content.component';
 import { FormsModule } from '@angular/forms';
+import { VotesDirective } from './votes.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormQuotesComponent,
     DisplayQuotesComponent,
-    DisplayContentComponent
+    DisplayContentComponent,
+    VotesDirective
   ],
   imports: [
     BrowserModule,
