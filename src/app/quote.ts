@@ -3,6 +3,7 @@ export class Quote {
      about!:string;
      name !: string;
     aurthor!:string;
+    count!:0;
 
     constructor(id: number, about: string,name:string,aurthor:string) {
         this.id = id;

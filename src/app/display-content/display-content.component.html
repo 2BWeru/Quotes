@@ -1,14 +1,29 @@
-
+<html ng-app>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <p>Works</p>
 <div>
 <h6>{{quote.name}}</h6>
 <h6>{{quote.aurthor}}</h6>
 <br>
-<button type="button" class="btn btn-default btn-sm">
-    <img src="/assets/Image/thumbs-up-2-.png" alt="like" width="20px" height="20px">
-  </button>
+<div class="row">
+  <div class="col">
+    <button type="button" class="btn btn-default btn-sm" ng-click="count = count+ 1" ng-init="count =0">
+      <img src="/assets/Image/thumbs-up-2-.png" alt="like" width="20px" height="20px">
+    </button>
+    <p>likes:</p>
+  </div>
   <br>
-  <button type="button" class="btn btn-default btn-sm">
-    <img src="/assets/Image/thumbs-down-.png" alt="like" width="20px" height="20px">
-  </button>
+  <div class="col" ng-controller="myController">
+    <button type="button"  class="btn btn-default btn-sm" ng-click="myCounts()">
+      <img src="/assets/Image/thumbs-down-.png" alt="dislike" width="20px" height="20px">
+    </button>
+    <span>dislikes:</span>
+  </div>
 </div>
+<button type="button" (click)='quoteComplete(true)'>Complete</button>
+  
+  
+</div>
+
+
+</html>
