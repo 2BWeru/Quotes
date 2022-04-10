@@ -24,11 +24,11 @@ export class DisplayQuotesComponent implements OnInit {
   
   ];
     
-  addNewQuote(quotes: Quote){
-    let quoteLength = this.quotes.length;
-    quotes.id = quoteLength+1;
-    this.quotes.push(quotes)
-  }
+  // addNewQuote(quotes: Quote){
+  //   let quoteLength = this.quotes.length;
+  //   quotes.id = quoteLength+1;
+  //   this.quotes.push(quotes)
+  // }
 
 
 ngOninit():void{
