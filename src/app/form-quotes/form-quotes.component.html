@@ -5,24 +5,37 @@
     <form #userModel="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" value="" ngModel name="name"  id="name"placeholder="Name" aria-label="Name">
+            <input type="text" class="form-control" value=""  id="name"placeholder="Name" aria-label="Name"
+            [(ngModel)]="newQuote.name" name="name" #name="ngModel"
+            >
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                <p>Name is required</p>
+            </div>
         </div>
+        <!-- {{newQuote.name}} -->
         <div class="col">
-            <input type="text" class="form-control"   ngModel name="aurthor" id="aurthor" placeholder="Author's Name" aria-label="Author's name">
+            <input type="text" class="form-control"  id="aurthor" placeholder="Author's Name" aria-label="Author's name"
+            [(ngModel)]="newQuote.aurthor" name="aurthor" #aurthor="ngModel">
+        </div>
+        <div [hidden]="aurthor.valid || aurthor.pristine" class="alert alert-danger">
+            <p>Author's name is required</p>
         </div>
     </div>
     <div class="quote">
         <label for="Quote">Write your Quote </label>
-        <br>
-            <textarea  ngModel name="quote" id="quote"placeholder="Quote..."></textarea>
+           <br>
+        <textarea rows="4" ngModel name="quote" id="quote"placeholder="Quote..."
+            [(ngModel)]="newQuote.about" name="about" #about="ngModel">
+        </textarea>
+        <div [hidden]="about.valid || about.pristine" class="alert alert-danger">
+            <p>Quote is required</p>
+        </div>
     </div>
     <div class="btn">
         <button type="submit" class="btn btn-success">Add Quote</button>
      </div>
      <br>
-     <div class="btn2">
-        <button type="submit" class="btn btn-success"> Quote</button>
-     </div>
+     
     
     </form>
         
