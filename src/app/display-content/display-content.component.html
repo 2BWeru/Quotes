@@ -14,16 +14,18 @@
   </div>
   <br>
   <div class="col" ng-controller="myController">
-    <button type="button"  class="btn btn-default btn-sm" ng-click="myCounts()">
+    <button id= btn-dlike type="button"  class="btn btn-default btn-sm" ng-click="myCounts()">
       <img src="/assets/Image/thumbs-down-.png" alt="dislike" width="20px" height="20px">
     </button>
-    <span>dislikes:</span>
+    <p>dislikes:</p>
   </div>
 </div>
-<button type="button" (click)='quoteComplete(true)'>Complete</button>
+<button id="btn-del" type="button" (click)='quoteDelete(true)'>Delete</button>
   
   
 </div>
+<br>
+<br>
 
 
 </html>

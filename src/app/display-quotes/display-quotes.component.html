@@ -2,7 +2,7 @@
 <p>display</p>
 <div *ngFor="let quote of quotes">
   <div>{{quote.about}}</div>
-   <app-display-content [quote]='quote'></app-display-content>
+   <app-display-content [quote]='quote' (isComplete) = 'deleteQuote($event,1)'></app-display-content>
    
 </div>
   
