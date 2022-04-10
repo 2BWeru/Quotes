@@ -1,22 +1,15 @@
- <p>display-quotes works!</p> 
-   <!-- <div>
-       <ul>
-           <li *ngFor="let quote of quotes">
-       {{quote.about}}  
-       </li>
-        <p *ngIf='quotes.length > 5'> Your quotes are too many</p> -->
-    <!-- </ul> --> 
-       <p>display</p>
-       <div class="row" *ngFor="let quote of quotes">
-           <div class="col-md-4">
-               <div class="about1">{{quote.about}}</div>
-            </div> 
-            <div class="cont">
-                <app-display-content [quote]='quote'></app-display-content>
-            </div> 
-         </div>  
-
-
-
+<p>display-quotes works!</p> 
+<p>display</p>
+<div *ngFor="let quote of quotes">
+  <div>{{quote.about}}</div>
+   <app-display-content [quote]='quote'></app-display-content>
    
+</div>
+  
+
+
+ <!-- <p *ngIf='quotes.length > 5'> Your quotes are too many</p>  -->
+
+
+ 
 
