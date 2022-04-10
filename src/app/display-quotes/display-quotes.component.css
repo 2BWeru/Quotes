@@ -1,4 +1,11 @@
 #words{
     border:3px solid red;
     
+    
+}
+.wrapper{
+    text-align: center;
+}
+#content{
+    text-align: center;
 }

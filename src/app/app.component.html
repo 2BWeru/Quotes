@@ -1,4 +1,5 @@
-<div class="container-fluid">
+<div class="wrapper">
+<div class="container-fluid" id="nav">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -19,21 +20,13 @@
   </nav>
 <h1 id="ttle">{{title}}</h1>
    <p>Fill the form below To display your quote</p>
-   <div>
-       <!-- form component -->
-       
-      <app-form-quotes (addQuote)="addNewQuote($event)"></app-form-quotes>
-   </div>
    <br>
    <br>
     <!-- display quotes -->
-   <div class="container">
-   <div class="border borsder-secondary" id="wrap">
-     <app-display-quotes></app-display-quotes>
-  </div>
-   </div>
-       
+    <app-display-quotes></app-display-quotes>
+   
        
 
+</div>
 </div>
 

@@ -1,10 +1,22 @@
-<p>display-quotes works!</p> 
-<p>display</p>
-<div *ngFor="let quote of quotes">
+<div class="container">
+  <div class="wrapper">
+  <!-- form component -->
+   <app-form-quotes (addQuote)="addNewQuote($event)"></app-form-quotes>
+  </div>
+</div>
+<div class="container" id="content">
+  <div class="border borsder-secondary" id="wrap">
+    <p>display-quotes works!</p> 
+         <p>display</p>
+     <div *ngFor="let quote of quotes">
   <div>{{quote.about}}</div>
    <app-display-content [quote]='quote' (isComplete) = 'deleteQuote($event,1)'></app-display-content>
-   
-</div>
+  </div>
+    </div>
+  </div>
+  
+      
+
   
 
 

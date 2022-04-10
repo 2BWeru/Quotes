@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { Quote } from './quote';
 
 
 
@@ -14,11 +13,7 @@ export class AppComponent{
 
   ngOnInit(): void {
   }
-  addNewQuote(quotes: Quote){
-    let quoteLength = this.quotes.length;
-    quotes.id = quoteLength+1;
-    this.quotes.push(quotes)
-  }
+
   
  
  
