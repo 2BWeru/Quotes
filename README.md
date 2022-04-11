@@ -13,16 +13,17 @@
  - Angular framework
 
  ### Link to website
- [link!] ()
+ [link] (https://2bweru.github.io/Quotes/)
 
  ## License
 
  ## Contact Info
  ### For future inquiries you can contact me at:
- [] ()
- [] ()
+ [link] (https://github.com/2BWeru)
+ [link] (https://mail.google.com/mail)
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
-## Development server
+#### This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.8.1.
+
+
