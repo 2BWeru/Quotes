@@ -1,0 +1,2371 @@
+The following NPM packages may be included in this product:
+
+ - @angular/animations@13.3.2
+ - @angular/common@13.3.2
+ - @angular/compiler@13.3.2
+ - @angular/core@13.3.2
+ - @angular/forms@13.3.2
+ - @angular/platform-browser-dynamic@13.3.2
+ - @angular/platform-browser@13.3.2
+ - @angular/router@13.3.2
+
+These packages each contain the following license and notice below:
+
+Angular
+=======
+
+The sources for this package are in the main [Angular](https://github.com/angular/angular) repo. Please file issues and pull requests against that repo.
+
+Usage information and reference details can be found in [Angular documentation](https://angular.io/docs).
+
+License: MIT
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - @popperjs/core@2.11.5
+
+This package contains the following license and notice below:
+
+The MIT License (MIT)
+
+Copyright (c) 2019 Federico Zivolo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - argparse@0.1.16
+
+This package contains the following license and notice below:
+
+(The MIT License)
+
+Copyright (C) 2012 by Vitaly Puzrin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - bootstrap@5.1.3
+
+This package contains the following license and notice below:
+
+The MIT License (MIT)
+
+Copyright (c) 2011-2021 Twitter, Inc.
+Copyright (c) 2011-2021 The Bootstrap Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - commander@2.0.0
+
+This package contains the following license and notice below:
+
+# Commander.js
+
+  The complete solution for [node.js](http://nodejs.org) command-line interfaces, inspired by Ruby's [commander](https://github.com/visionmedia/commander).
+
+ [![Build Status](https://secure.travis-ci.org/visionmedia/commander.js.png)](http://travis-ci.org/visionmedia/commander.js)
+
+## Installation
+
+    $ npm install commander
+
+## Option parsing
+
+ Options with commander are defined with the `.option()` method, also serving as documentation for the options. The example below parses args and options from `process.argv`, leaving remaining args as the `program.args` array which were not consumed by options.
+
+```js
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var program = require('commander');
+
+program
+  .version('0.0.1')
+  .option('-p, --peppers', 'Add peppers')
+  .option('-P, --pineapple', 'Add pineapple')
+  .option('-b, --bbq', 'Add bbq sauce')
+  .option('-c, --cheese [type]', 'Add the specified type of cheese [marble]', 'marble')
+  .parse(process.argv);
+
+console.log('you ordered a pizza with:');
+if (program.peppers) console.log('  - peppers');
+if (program.pineapple) console.log('  - pineapple');
+if (program.bbq) console.log('  - bbq');
+console.log('  - %s cheese', program.cheese);
+```
+
+ Short flags may be passed as a single arg, for example `-abc` is equivalent to `-a -b -c`. Multi-word options such as "--template-engine" are camel-cased, becoming `program.templateEngine` etc.
+
+## Automated --help
+
+ The help information is auto-generated based on the information commander already knows about your program, so the following `--help` info is for free:
+
+```  
+ $ ./examples/pizza --help
+
+   Usage: pizza [options]
+
+   Options:
+
+     -V, --version        output the version number
+     -p, --peppers        Add peppers
+     -P, --pineapple      Add pineapple
+     -b, --bbq            Add bbq sauce
+     -c, --cheese <type>  Add the specified type of cheese [marble]
+     -h, --help           output usage information
+
+```
+
+## Coercion
+
+```js
+function range(val) {
+  return val.split('..').map(Number);
+}
+
+function list(val) {
+  return val.split(',');
+}
+
+program
+  .version('0.0.1')
+  .usage('[options] <file ...>')
+  .option('-i, --integer <n>', 'An integer argument', parseInt)
+  .option('-f, --float <n>', 'A float argument', parseFloat)
+  .option('-r, --range <a>..<b>', 'A range', range)
+  .option('-l, --list <items>', 'A list', list)
+  .option('-o, --optional [value]', 'An optional value')
+  .parse(process.argv);
+
+console.log(' int: %j', program.integer);
+console.log(' float: %j', program.float);
+console.log(' optional: %j', program.optional);
+program.range = program.range || [];
+console.log(' range: %j..%j', program.range[0], program.range[1]);
+console.log(' list: %j', program.list);
+console.log(' args: %j', program.args);
+```
+
+## Custom help
+
+ You can display arbitrary `-h, --help` information
+ by listening for "--help". Commander will automatically
+ exit once you are done so that the remainder of your program
+ does not execute causing undesired behaviours, for example
+ in the following executable "stuff" will not output when
+ `--help` is used.
+
+```js
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var program = require('../');
+
+function list(val) {
+  return val.split(',').map(Number);
+}
+
+program
+  .version('0.0.1')
+  .option('-f, --foo', 'enable some foo')
+  .option('-b, --bar', 'enable some bar')
+  .option('-B, --baz', 'enable some baz');
+
+// must be before .parse() since
+// node's emit() is immediate
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ custom-help --help');
+  console.log('    $ custom-help -h');
+  console.log('');
+});
+
+program.parse(process.argv);
+
+console.log('stuff');
+```
+
+yielding the following help output:
+
+```
+
+Usage: custom-help [options]
+
+Options:
+
+  -h, --help     output usage information
+  -V, --version  output the version number
+  -f, --foo      enable some foo
+  -b, --bar      enable some bar
+  -B, --baz      enable some baz
+
+Examples:
+
+  $ custom-help --help
+  $ custom-help -h
+
+```
+
+## .outputHelp()
+
+  Output help information without exiting.
+
+## .help()
+
+  Output help information and exit immediately.
+
+## Links
+
+ - [API documentation](http://visionmedia.github.com/commander.js/)
+ - [ascii tables](https://github.com/LearnBoost/cli-table)
+ - [progress bars](https://github.com/visionmedia/node-progress)
+ - [more progress bars](https://github.com/substack/node-multimeter)
+ - [examples](https://github.com/visionmedia/commander.js/tree/master/examples)
+
+## License 
+
+(The MIT License)
+
+Copyright (c) 2011 TJ Holowaychuk &lt;tj@vision-media.ca&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - dot@1.0.1
+
+This package contains the following license and notice below:
+
+Copyright (c) 2011 Laura Doktorova
+
+Software includes portions from jQote2 Copyright (c) 2010 aefxx,
+http://aefxx.com/ licensed under the MIT license.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - esprima@1.0.4
+
+This package contains the following license and notice below:
+
+**Esprima** ([esprima.org](http://esprima.org)) is a high performance,
+standard-compliant [ECMAScript](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
+parser written in ECMAScript (also popularly known as
+[JavaScript](http://en.wikipedia.org/wiki/JavaScript>JavaScript)).
+Esprima is created and maintained by [Ariya Hidayat](http://twitter.com/ariyahidayat),
+with the help of [many contributors](https://github.com/ariya/esprima/contributors).
+
+Esprima runs on web browsers (IE 6+, Firefox 1+, Safari 3+, Chrome 1+, Konqueror 4.6+, Opera 8+) as well as
+[Node.js](http://nodejs.org).
+
+### Features
+
+- Full support for [ECMAScript 5.1](http://www.ecma-international.org/publications/standards/Ecma-262.htm)(ECMA-262)
+- Sensible [syntax tree format](http://esprima.org/doc/index.html#ast) compatible with Mozilla
+[Parser AST](https://developer.mozilla.org/en/SpiderMonkey/Parser_API)
+- Heavily tested (> 550 [unit tests](http://esprima.org/test/) with solid 100% statement coverage)
+- Optional tracking of syntax node location (index-based and line-column)
+- Experimental support for ES6/Harmony (module, class, destructuring, ...)
+
+Esprima is blazing fast (see the [benchmark suite](http://esprima.org/test/benchmarks.html)).
+It is up to 3x faster than UglifyJS v1 and it is still [competitive](http://esprima.org/test/compare.html)
+with the new generation of fast parsers.
+
+### Applications
+
+Esprima serves as the basis for many popular JavaScript development tools:
+
+- Code coverage analysis: [node-cover](https://github.com/itay/node-cover), [Istanbul](https://github.com/yahoo/Istanbul)
+- Documentation tool: [JFDoc](https://github.com/thejohnfreeman/jfdoc), [JSDuck](https://github.com/senchalabs/jsduck)
+- Language extension: [LLJS](http://mbebenita.github.com/LLJS/) (low-level JS),
+[Sweet.js](http://sweetjs.org/) (macro)
+- ES6/Harmony transpiler: [Six](https://github.com/matthewrobb/six), [Harmonizr](https://github.com/jdiamond/harmonizr)
+- Eclipse Orion smart editing ([outline view](https://github.com/aclement/esprima-outline), [content assist](http://contraptionsforprogramming.blogspot.com/2012/02/better-javascript-content-assist-in.html))
+- Source code modification: [Esmorph](https://github.com/ariya/esmorph), [Code Painter](https://github.com/fawek/codepainter),
+- Source transformation: [node-falafel](https://github.com/substack/node-falafel), [Esmangle](https://github.com/Constellation/esmangle), [escodegen](https://github.com/Constellation/escodegen)
+
+### Questions?
+- [Documentation](http://esprima.org/doc)
+- [Issue tracker](http://issues.esprima.org): [known problems](http://code.google.com/p/esprima/issues/list?q=Defect)
+and [future plans](http://code.google.com/p/esprima/issues/list?q=Enhancement)
+- [Mailing list](http://groups.google.com/group/esprima)
+- [Contribution guide](http://esprima.org/doc/index.html#contribution)
+
+Follow [@Esprima](http://twitter.com/Esprima) on Twitter to get the
+development updates.
+Feedback and contribution are welcomed!
+
+### License
+
+Copyright (C) 2012, 2011 [Ariya Hidayat](http://ariya.ofilabs.com/about)
+ and other contributors.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - js-yaml@2.0.5
+
+This package contains the following license and notice below:
+
+(The MIT License)
+
+Copyright (C) 2011, 2013 by Vitaly Puzrin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - ngx-timeago@2.0.0
+
+This package contains the following license and notice below:
+
+# ngx-timeago [![Build Status](https://travis-ci.org/ihym/ngx-timeago.svg?branch=master)](https://travis-ci.org/ihym/ngx-timeago) [![npm version](https://badge.fury.io/js/ngx-timeago.svg)](https://badge.fury.io/js/ngx-timeago) [![npm](https://img.shields.io/npm/dm/ngx-timeago.svg?maxAge=2592000)](https://www.npmjs.com/package/ngx-timeago) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
+Live updating timestamps in Angular 6+.
+
+[https://ihym.github.io/ngx-timeago/](https://ihym.github.io/ngx-timeago/)
+
+Get the complete changelog here: https://github.com/ihym/ngx-timeago/releases
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [API](#api)
+* [Contribute](#contribute)
+
+
+## Installation
+
+First you need to install the npm module:
+
+```sh
+npm install ngx-timeago --save
+```
+
+Choose the version corresponding to your Angular version:
+
+| Angular       | ngx-timeago        |
+| ------------- | -------------------|
+| 10            | 2.x+               |
+| 6,7,8,9       | 1.x+               |
+
+## Usage
+
+#### 1. Import the `TimeagoModule`:
+
+Once installed you need to import the main module into your application module by calling TimeagoModule.forRoot(). 
+
+Make sure you only call this method in the root module of your application, most of the time called `AppModule`.
+This method allows you to configure the `TimeagoModule` by specifying a formatter, clock and/or an intl service. You should end up with code similar to this:
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { TimeagoModule } from 'ngx-timeago';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    TimeagoModule.forRoot()
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+##### SharedModule
+
+If you use a [`SharedModule`](https://angular.io/docs/ts/latest/guide/ngmodule.html#!#shared-modules) that you import in multiple other feature modules,
+you can export the `TimeagoModule` to make sure you don't have to import it in every module.
+
+```ts
+@NgModule({
+  exports: [
+    CommonModule,
+    TimeagoModule
+  ]
+})
+export class SharedModule { }
+```
+
+##### Lazy loaded modules
+
+When you lazy load a module, you should use the `forChild` static method to import the `TimeagoModule`.
+
+Since lazy loaded modules use a different injector from the rest of your application, you can configure them separately with a different formatter/clock/intl service.
+
+```ts
+@NgModule({
+  imports: [
+    TimeagoModule.forChild({
+      formatter: {provide: TimeagoFormatter, useClass: CustomFormatter},
+      clock: {provide: TimeagoClock, useClass: CustomClock},
+      intl: {provide: TimeagoIntl, useClass: CustomIntl},
+    })
+  ]
+})
+export class LazyLoadedModule { }
+```
+
+##### I18n
+
+By default, there is no intl service available, as the default formatter doesn't provide language support.
+You should provide one, if you end up with a formatter that needs it (either TimeagoCustomFormatter which is provided by the lib or your own). The purpose of the intl service is to contain all the necessary i18n strings used by your formatter.
+
+```ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { Timeago, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter } from 'ngx-timeago';
+import { AppComponent } from './app';
+
+export class MyIntl extends TimeagoIntl {
+// do extra stuff here...
+}
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    TimeagoModule.forRoot({
+      intl: { provide: TimeagoIntl, useClass: MyIntl },
+      formatter: { provide: TimeagoFormatter, useClass: TimeagoCustomFormatter },
+    })
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+There is support for a large number of languages out of the box. This support is based on the string objects taken from `jquery-timeago`.
+
+To use any of the languages provided, you will have to import the language strings and feed them to the intl service.
+
+```ts
+import { Component } from '@angular/core';
+import { TimeagoIntl } from 'ngx-timeago';
+import {strings as englishStrings} from 'ngx-timeago/language-strings/en';
+
+@Component({
+  selector: 'app',
+  template: `
+    <div timeago [date]="1553683912689"></div>
+  `
+})
+export class AppComponent {
+  constructor(intl: TimeagoIntl) {
+    intl.strings = englishStrings;
+    intl.changes.next();
+  }
+}
+```
+
+You can also customize the language strings or provide your own.
+
+
+#### 2. Use the pipe or the directive:
+
+This is how you do it with the **pipe**:
+```html
+<div>{{1553683912689 | timeago:live}}</div>
+```
+And in your component define live (`true` by default).
+
+This is how you use the **directive**:
+```html
+<div timeago [date]="1553683912689" [live]="live"></div>
+```
+
+## API
+
+#### Write your own formatter
+
+If you want to write your own formatter, you need to create a class that implements `TimeagoFormatter`. The only required method is `format` that must return the final `string`.
+
+[Example](lib/src/timeago.formatter.ts)
+
+Once you've defined your formatter, you can provide it in your configuration.
+
+```ts
+@NgModule({
+  imports: [
+    BrowserModule,
+    TimeagoModule.forRoot({
+      formatter: {provide: TimeagoFormatter, useClass: CustomFormatter}
+    })
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+#### Write your own clock
+
+The only required method to build your own clock, is `tick` that must return an `Observable<any>`. Whenever this observable emits, the timestamp will be updated, using your formatter (and intl, if available).
+
+```ts
+import { TimeagoClock } from 'ngx-timeago';
+import { Observable, interval } from 'rxjs';
+
+// ticks every 2s
+export class MyClock extends TimeagoClock {
+  tick(then: number): Observable<number> {
+    return interval(2000);
+  }
+}
+```
+
+Setup the clock in your module import by adding it to the `forRoot` (or `forChild`) configuration.
+
+```ts
+@NgModule({
+  imports: [
+    BrowserModule,
+    TimeagoModule.forRoot({
+      clock: {provide: TimeagoClock, useClass: MyClock},
+    })
+  ],
+  providers: [
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+## Contribute
+`ngx-timeago` is packaged with [ng-packagr](https://github.com/dherges/ng-packagr) and then imported into an Angular CLI app.
+To run the demo, do the following steps:
+
+```bash
+$ npm install
+$ npm run build:lib
+$ npm start dev
+```
+
+***
+MIT © [Vasilis Diakomanolis](https://github.com/ihym)
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - proper@0.5.1
+
+This package contains the following license and notice below:
+
+The MIT License (MIT)
+
+Copyright (c) 2013 tombenke
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - rxjs@7.5.5
+
+This package contains the following license and notice below:
+
+Apache License
+                         Version 2.0, January 2004
+                      http://www.apache.org/licenses/
+
+ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+ 1. Definitions.
+
+    "License" shall mean the terms and conditions for use, reproduction,
+    and distribution as defined by Sections 1 through 9 of this document.
+
+    "Licensor" shall mean the copyright owner or entity authorized by
+    the copyright owner that is granting the License.
+
+    "Legal Entity" shall mean the union of the acting entity and all
+    other entities that control, are controlled by, or are under common
+    control with that entity. For the purposes of this definition,
+    "control" means (i) the power, direct or indirect, to cause the
+    direction or management of such entity, whether by contract or
+    otherwise, or (ii) ownership of fifty percent (50%) or more of the
+    outstanding shares, or (iii) beneficial ownership of such entity.
+
+    "You" (or "Your") shall mean an individual or Legal Entity
+    exercising permissions granted by this License.
+
+    "Source" form shall mean the preferred form for making modifications,
+    including but not limited to software source code, documentation
+    source, and configuration files.
+
+    "Object" form shall mean any form resulting from mechanical
+    transformation or translation of a Source form, including but
+    not limited to compiled object code, generated documentation,
+    and conversions to other media types.
+
+    "Work" shall mean the work of authorship, whether in Source or
+    Object form, made available under the License, as indicated by a
+    copyright notice that is included in or attached to the work
+    (an example is provided in the Appendix below).
+
+    "Derivative Works" shall mean any work, whether in Source or Object
+    form, that is based on (or derived from) the Work and for which the
+    editorial revisions, annotations, elaborations, or other modifications
+    represent, as a whole, an original work of authorship. For the purposes
+    of this License, Derivative Works shall not include works that remain
+    separable from, or merely link (or bind by name) to the interfaces of,
+    the Work and Derivative Works thereof.
+
+    "Contribution" shall mean any work of authorship, including
+    the original version of the Work and any modifications or additions
+    to that Work or Derivative Works thereof, that is intentionally
+    submitted to Licensor for inclusion in the Work by the copyright owner
+    or by an individual or Legal Entity authorized to submit on behalf of
+    the copyright owner. For the purposes of this definition, "submitted"
+    means any form of electronic, verbal, or written communication sent
+    to the Licensor or its representatives, including but not limited to
+    communication on electronic mailing lists, source code control systems,
+    and issue tracking systems that are managed by, or on behalf of, the
+    Licensor for the purpose of discussing and improving the Work, but
+    excluding communication that is conspicuously marked or otherwise
+    designated in writing by the copyright owner as "Not a Contribution."
+
+    "Contributor" shall mean Licensor and any individual or Legal Entity
+    on behalf of whom a Contribution has been received by Licensor and
+    subsequently incorporated within the Work.
+
+ 2. Grant of Copyright License. Subject to the terms and conditions of
+    this License, each Contributor hereby grants to You a perpetual,
+    worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+    copyright license to reproduce, prepare Derivative Works of,
+    publicly display, publicly perform, sublicense, and distribute the
+    Work and such Derivative Works in Source or Object form.
+
+ 3. Grant of Patent License. Subject to the terms and conditions of
+    this License, each Contributor hereby grants to You a perpetual,
+    worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+    (except as stated in this section) patent license to make, have made,
+    use, offer to sell, sell, import, and otherwise transfer the Work,
+    where such license applies only to those patent claims licensable
+    by such Contributor that are necessarily infringed by their
+    Contribution(s) alone or by combination of their Contribution(s)
+    with the Work to which such Contribution(s) was submitted. If You
+    institute patent litigation against any entity (including a
+    cross-claim or counterclaim in a lawsuit) alleging that the Work
+    or a Contribution incorporated within the Work constitutes direct
+    or contributory patent infringement, then any patent licenses
+    granted to You under this License for that Work shall terminate
+    as of the date such litigation is filed.
+
+ 4. Redistribution. You may reproduce and distribute copies of the
+    Work or Derivative Works thereof in any medium, with or without
+    modifications, and in Source or Object form, provided that You
+    meet the following conditions:
+
+    (a) You must give any other recipients of the Work or
+        Derivative Works a copy of this License; and
+
+    (b) You must cause any modified files to carry prominent notices
+        stating that You changed the files; and
+
+    (c) You must retain, in the Source form of any Derivative Works
+        that You distribute, all copyright, patent, trademark, and
+        attribution notices from the Source form of the Work,
+        excluding those notices that do not pertain to any part of
+        the Derivative Works; and
+
+    (d) If the Work includes a "NOTICE" text file as part of its
+        distribution, then any Derivative Works that You distribute must
+        include a readable copy of the attribution notices contained
+        within such NOTICE file, excluding those notices that do not
+        pertain to any part of the Derivative Works, in at least one
+        of the following places: within a NOTICE text file distributed
+        as part of the Derivative Works; within the Source form or
+        documentation, if provided along with the Derivative Works; or,
+        within a display generated by the Derivative Works, if and
+        wherever such third-party notices normally appear. The contents
+        of the NOTICE file are for informational purposes only and
+        do not modify the License. You may add Your own attribution
+        notices within Derivative Works that You distribute, alongside
+        or as an addendum to the NOTICE text from the Work, provided
+        that such additional attribution notices cannot be construed
+        as modifying the License.
+
+    You may add Your own copyright statement to Your modifications and
+    may provide additional or different license terms and conditions
+    for use, reproduction, or distribution of Your modifications, or
+    for any such Derivative Works as a whole, provided Your use,
+    reproduction, and distribution of the Work otherwise complies with
+    the conditions stated in this License.
+
+ 5. Submission of Contributions. Unless You explicitly state otherwise,
+    any Contribution intentionally submitted for inclusion in the Work
+    by You to the Licensor shall be under the terms and conditions of
+    this License, without any additional terms or conditions.
+    Notwithstanding the above, nothing herein shall supersede or modify
+    the terms of any separate license agreement you may have executed
+    with Licensor regarding such Contributions.
+
+ 6. Trademarks. This License does not grant permission to use the trade
+    names, trademarks, service marks, or product names of the Licensor,
+    except as required for reasonable and customary use in describing the
+    origin of the Work and reproducing the content of the NOTICE file.
+
+ 7. Disclaimer of Warranty. Unless required by applicable law or
+    agreed to in writing, Licensor provides the Work (and each
+    Contributor provides its Contributions) on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+    implied, including, without limitation, any warranties or conditions
+    of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+    PARTICULAR PURPOSE. You are solely responsible for determining the
+    appropriateness of using or redistributing the Work and assume any
+    risks associated with Your exercise of permissions under this License.
+
+ 8. Limitation of Liability. In no event and under no legal theory,
+    whether in tort (including negligence), contract, or otherwise,
+    unless required by applicable law (such as deliberate and grossly
+    negligent acts) or agreed to in writing, shall any Contributor be
+    liable to You for damages, including any direct, indirect, special,
+    incidental, or consequential damages of any character arising as a
+    result of this License or out of the use or inability to use the
+    Work (including but not limited to damages for loss of goodwill,
+    work stoppage, computer failure or malfunction, or any and all
+    other commercial damages or losses), even if such Contributor
+    has been advised of the possibility of such damages.
+
+ 9. Accepting Warranty or Additional Liability. While redistributing
+    the Work or Derivative Works thereof, You may choose to offer,
+    and charge a fee for, acceptance of support, warranty, indemnity,
+    or other liability obligations and/or rights consistent with this
+    License. However, in accepting such obligations, You may act only
+    on Your own behalf and on Your sole responsibility, not on behalf
+    of any other Contributor, and only if You agree to indemnify,
+    defend, and hold each Contributor harmless for any liability
+    incurred by, or claims asserted against, such Contributor by reason
+    of your accepting any such warranty or additional liability.
+
+ END OF TERMS AND CONDITIONS
+
+ APPENDIX: How to apply the Apache License to your work.
+
+    To apply the Apache License to your work, attach the following
+    boilerplate notice, with the fields enclosed by brackets "[]"
+    replaced with your own identifying information. (Don't include
+    the brackets!)  The text should be enclosed in the appropriate
+    comment syntax for the file format. We also recommend that a
+    file or class name and description of purpose be included on the
+    same "printed page" as the copyright notice for easier
+    identification within third-party archives.
+
+ Copyright (c) 2015-2018 Google, Inc., Netflix, Inc., Microsoft Corp. and contributors
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - sax@0.4.3
+
+This package contains the following license and notice below:
+
+Copyright 2009, 2010, 2011 Isaac Z. Schlueter.
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - should@1.2.2
+
+This package contains the following license and notice below:
+
+_should_ is an expressive, readable, test framework agnostic, assertion library for [node](http://nodejs.org).
+
+It extends the Object prototype with a single non-enumerable getter that allows you to express how that object should behave.
+
+_should_ literally extends node's _assert_ module, in fact, it is node's assert module, for example `should.equal(str, 'foo')` will work, just as `assert.equal(str, 'foo')` would, and `should.AssertionError` **is** `assert.AssertionError`, meaning any test framework supporting this constructor will function properly with _should_.
+
+## Example
+```javascript
+var user = {
+    name: 'tj'
+  , pets: ['tobi', 'loki', 'jane', 'bandit']
+};
+
+user.should.have.property('name', 'tj');
+user.should.have.property('pets').with.lengthOf(4);
+
+someAsyncTask(foo, function(err, result){
+  should.not.exist(err);
+  should.exist(result);
+  result.bar.should.equal(foo);
+});
+```
+## Installation
+
+    $ npm install should
+
+## assert extras
+
+As mentioned above, _should_ extends node's _assert_. The returned object from `require('should')` is thus similar to the returned object from `require('assert')`, but it has one extra convenience method:
+```javascript
+should.exist('hello')
+should.exist([])
+should.exist(null)  // will throw
+```
+This is equivalent to `should.ok`, which is equivalent to `assert.ok`, but reads a bit better. It gets better, though:
+```javascript
+should.not.exist(false)
+should.not.exist('')
+should.not.exist({})    // will throw
+```
+We may add more _assert_ extras in the future... ;)
+
+## chaining assertions
+
+Some assertions can be chained, for example if a property is volatile we can first assert property existence:
+```javascript
+user.should.have.property('pets').with.lengthOf(4)
+```
+which is essentially equivalent to below, however the property may not exist:
+```javascript
+user.pets.should.have.lengthOf(4)
+```
+our dummy getters such as _and_ also help express chaining:
+```javascript
+user.should.be.a('object').and.have.property('name', 'tj')
+```
+## exist (static)
+
+The returned object from `require('should')` is the same object as `require('assert')`. So you can use `should` just like `assert`:
+```javascript
+should.fail('expected an error!')
+should.strictEqual(foo, bar)
+```
+In general, using the Object prototype's _should_ is nicer than using these `assert` equivalents, because _should_ gives you access to the expressive and readable language described above:
+```javascript
+foo.should.equal(bar)   // same as should.strictEqual(foo, bar) above
+```
+The only exception, though, is when you can't be sure that a particular object exists. In that case, attempting to access the _should_ property may throw a TypeError:
+```javascript
+foo.should.equal(bar)   // throws if foo is null or undefined!
+```
+For this case, `require('should')` extends `require('assert')` with an extra convenience method to check whether an object exists:
+```javascript
+should.exist({})
+should.exist([])
+should.exist('')
+should.exist(0)
+should.exist(null)      // will throw
+should.exist(undefined) // will throw
+```
+You can also check the negation:
+```javascript
+should.not.exist(undefined)
+should.not.exist(null)
+should.not.exist('')    // will throw
+should.not.exist({})    // will throw
+```
+Once you know an object exists, you can safely use the _should_ property on it.
+
+## ok
+
+Assert truthfulness:
+```javascript
+true.should.be.ok
+'yay'.should.be.ok
+(1).should.be.ok
+```
+or negated:
+```javascript
+false.should.not.be.ok
+''.should.not.be.ok
+(0).should.not.be.ok
+```
+## true
+
+Assert === true:
+```javascript
+true.should.be.true
+'1'.should.not.be.true
+```
+## false
+
+Assert === false:
+```javascript
+false.should.be.false
+(0).should.not.be.false
+```
+## arguments
+
+Assert `Arguments`:
+```javascript
+var args = (function(){ return arguments; })(1,2,3);
+args.should.be.arguments;
+[].should.not.be.arguments;
+```
+## empty
+
+Asserts that length is 0:
+```javascript
+[].should.be.empty
+''.should.be.empty
+({ length: 0 }).should.be.empty
+```
+## eql
+
+equality:
+```javascript
+({ foo: 'bar' }).should.eql({ foo: 'bar' })
+[1,2,3].should.eql([1,2,3])
+```
+## equal
+
+strict equality:
+```javascript
+should.strictEqual(undefined, value)
+should.strictEqual(false, value)
+(4).should.equal(4)
+'test'.should.equal('test')
+[1,2,3].should.not.equal([1,2,3])
+```
+## within
+
+Assert inclusive numeric range:
+```javascript
+user.age.should.be.within(5, 50)
+```
+## a
+
+Assert __typeof__:
+```javascript
+user.should.be.a('object')
+'test'.should.be.a('string')
+```
+## instanceof and instanceOf
+
+Assert __instanceof__ or __instanceOf__:
+```javascript
+user.should.be.an.instanceof(User)
+[].should.be.an.instanceOf(Array)
+```
+## above
+
+Assert numeric value above the given value:
+```javascript
+user.age.should.be.above(5)
+user.age.should.not.be.above(100)
+```
+## below
+
+Assert numeric value below the given value:
+```javascript
+user.age.should.be.below(100)
+user.age.should.not.be.below(5)
+```
+## match
+
+Assert regexp match:
+```javascript
+username.should.match(/^\w+$/)
+```
+## length
+
+Assert _length_ property exists and has a value of the given number:
+```javascript
+user.pets.should.have.length(5)
+user.pets.should.have.a.lengthOf(5)
+```
+Aliases: _lengthOf_
+
+## property
+
+Assert property exists and has optional value:
+```javascript
+user.should.have.property('name')
+user.should.have.property('age', 15)
+user.should.not.have.property('rawr')
+user.should.not.have.property('age', 0)
+```
+## ownProperty
+
+Assert own property (on the immediate object):
+```javascript
+({ foo: 'bar' }).should.have.ownProperty('foo')
+```
+## status(code)
+
+ Asserts that `.statusCode` is `code`:
+```javascript
+res.should.have.status(200);
+```
+## header(field[, value])
+
+ Asserts that a `.headers` object with `field` and optional `value` are present:
+```javascript
+res.should.have.header('content-length');
+res.should.have.header('Content-Length', '123');
+res.should.have.header('content-length', '123');
+```
+## json
+
+  Assert that Content-Type is "application/json; charset=utf-8"
+```javascript
+res.should.be.json
+```
+## html
+
+  Assert that Content-Type is "text/html; charset=utf-8"
+```javascript
+res.should.be.html
+```
+## include(obj)
+
+Assert that the given `obj` is present via `indexOf()`, so this works for strings, arrays, or custom objects implementing indexOf.
+
+Assert array value:
+```javascript
+[1,2,3].should.include(3)
+[1,2,3].should.include(2)
+[1,2,3].should.not.include(4)
+```
+Assert substring:
+```javascript
+'foo bar baz'.should.include('foo')
+'foo bar baz'.should.include('bar')
+'foo bar baz'.should.include('baz')
+'foo bar baz'.should.not.include('FOO')
+```
+Assert object includes another object:
+```javascript
+var tobi = { name: 'Tobi', age: 1 };
+var jane = { name: 'Jane', age: 5 };
+var user = { name: 'TJ', pet: tobi };
+
+user.should.include({ pet: tobi });
+user.should.include({ pet: tobi, name: 'TJ' });
+user.should.not.include({ pet: jane });
+user.should.not.include({ name: 'Someone' });
+```
+## includeEql(obj)
+
+Assert that an object equal to the given `obj` is present in an Array:
+```javascript
+[[1],[2],[3]].should.includeEql([3])
+[[1],[2],[3]].should.includeEql([2])
+[[1],[2],[3]].should.not.includeEql([4])
+```
+## throw()
+
+Assert an exception is thrown:
+
+```js
+(function(){
+  throw new Error('fail');
+}).should.throw();
+```
+
+Assert an exception is not thrown:
+
+```js
+(function(){
+
+}).should.not.throw();
+```
+Assert exepection message matches string:
+
+```js
+(function(){
+  throw new Error('fail');
+}).should.throw('fail');
+```
+
+Assert exepection message matches regexp:
+
+```js
+(function(){
+  throw new Error('failed to foo');
+}).should.throw(/^fail/);
+```
+
+## throwError()
+
+An alias of `throw`, its purpose is to be an option for those who run
+[jshint](https://github.com/jshint/node-jshint/) in strict mode.
+
+```js
+(function(){
+  throw new Error('failed to baz');
+}).should.throwError(/^fail.*/);
+```
+
+
+## keys
+
+Assert own object keys, which must match _exactly_,
+and will fail if you omit a key or two:
+
+    var obj = { foo: 'bar', baz: 'raz' };
+    obj.should.have.keys('foo', 'bar');
+    obj.should.have.keys(['foo', 'bar']);
+
+## Optional Error description
+
+As it can often be difficult to ascertain exactly where failed assertions are coming from in your tests, an optional description parameter can be passed to several should matchers. The description will follow the failed assertion in the error:
+
+    (1).should.eql(0, 'some useful description')
+
+    AssertionError: expected 1 to equal 0 | some useful description
+      at Object.eql (/Users/swift/code/should.js/node_modules/should/lib/should.js:280:10)
+      ...
+
+The methods that support this optional description are: `eql`, `equal`, `within`, `a`, `instanceof`, `above`, `below`, `match`, `length`, `property`, `ownProperty`, `include`, and `includeEql`.
+
+## Express example
+
+For example you can use should with the [Expresso TDD Framework](http://github.com/visionmedia/expresso) by simply including it:
+
+    var lib = require('mylib')
+      , should = require('should');
+
+    module.exports = {
+      'test .version': function(){
+        lib.version.should.match(/^\d+\.\d+\.\d+$/);
+      }
+    };
+
+## Running tests
+
+To run the tests for _should_ simply update your git submodules and run:
+
+    $ make test
+
+## OMG IT EXTENDS OBJECT???!?!@
+
+Yes, yes it does, with a single getter _should_, and no it won't break your code, because it does this **properly** with a non-enumerable property.
+
+## License
+
+(The MIT License)
+
+Copyright (c) 2010-2011 TJ Holowaychuk &lt;tj@vision-media.ca&gt;
+Copyright (c) 2011 Aseem Kishore &lt;aseem.kishore@gmail.com&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - time-ago-pipe@1.3.2
+
+This package contains the following license and notice below:
+
+MIT License
+
+Copyright (c) 2016 Andrew Poyntz
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-----------
+
+The following NPM packages may be included in this product:
+
+ - tslib@1.14.1
+ - tslib@2.3.1
+
+These packages each contain the following license and notice below:
+
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - underscore.string@2.4.0
+
+This package contains the following license and notice below:
+
+# Underscore.string [![Build Status](https://secure.travis-ci.org/epeli/underscore.string.png?branch=master)](http://travis-ci.org/epeli/underscore.string) #
+
+
+
+Javascript lacks complete string manipulation operations.
+This an attempt to fill that gap. List of build-in methods can be found
+for example from [Dive Into JavaScript][d].
+
+[d]: http://www.diveintojavascript.com/core-javascript-reference/the-string-object
+
+
+As name states this an extension for [Underscore.js][u] (and [Lo-Dash](http://lodash.com/)), but it can be used
+independently from **_s**-global variable. But with Underscore.js you can
+use Object-Oriented style and chaining:
+
+[u]: http://underscorejs.org/
+
+```javascript
+_("   epeli  ").chain().trim().capitalize().value()
+=> "Epeli"
+```
+
+## Download ##
+
+  * [Development version](https://raw.github.com/epeli/underscore.string/master/lib/underscore.string.js) *Uncompressed with Comments 18kb*
+  * [Production version](https://github.com/epeli/underscore.string/raw/master/dist/underscore.string.min.js) *Minified 7kb*
+
+
+## Node.js installation ##
+
+**npm package**
+
+    npm install underscore.string
+
+**Standalone usage**:
+
+```javascript
+var _s = require('underscore.string');
+```
+
+**Integrate with Underscore.js**:
+
+```javascript
+var _  = require('underscore');
+
+// Import Underscore.string to separate object, because there are conflict functions (include, reverse, contains)
+_.str = require('underscore.string');
+
+// Mix in non-conflict functions to Underscore namespace if you want
+_.mixin(_.str.exports());
+
+// All functions, include conflict, will be available through _.str object
+_.str.include('Underscore.string', 'string'); // => true
+```
+
+**Or Integrate with Underscore.js without module loading**
+
+Run the following expression after Underscore.js and Underscore.string are loaded
+```javascript
+// _.str becomes a global variable if no module loading is detected
+// Mix in non-conflict functions to Underscore namespace
+_.mixin(_.str.exports());
+```
+
+## String Functions ##
+
+For availability of functions in this way you need to mix in Underscore.string functions:
+
+```javascript
+_.mixin(_.string.exports());
+```
+
+otherwise functions from examples will be available through _.string or _.str objects:
+
+```javascript
+_.str.capitalize('epeli')
+=> "Epeli"
+```
+
+**numberFormat** _.numberFormat(number, [ decimals=0, decimalSeparator='.', orderSeparator=','])
+
+Formats the numbers.
+
+```javascript
+_.numberFormat(1000, 2)
+=> "1,000.00"
+
+_.numberFormat(123456789.123, 5, '.', ',')
+=> "123,456,789.12300"
+```
+
+
+**levenshtein** _.levenshtein(string1, string2)
+
+Calculates [Levenshtein distance][ld] between two strings.
+[ld]: http://en.wikipedia.org/wiki/Levenshtein_distance
+
+```javascript
+_.levenshtein('kitten', 'kittah')
+=> 2
+```
+
+**capitalize** _.capitalize(string)
+
+Converts first letter of the string to uppercase.
+
+```javascript
+_.capitalize("foo Bar")
+=> "Foo Bar"
+```
+
+**chop** _.chop(string, step)
+
+```javascript
+_.chop('whitespace', 3)
+=> ['whi','tes','pac','e']
+```
+
+**clean** _.clean(str)
+
+Compress some whitespaces to one.
+
+```javascript
+_.clean(" foo    bar   ")
+=> 'foo bar'
+```
+
+**chars** _.chars(str)
+
+```javascript
+_.chars('Hello')
+=> ['H','e','l','l','o']
+```
+
+**swapCase** _.swapCase(str)
+
+Returns a copy of the string in which all the case-based characters have had their case swapped.
+
+```javascript
+_.swapCase('hELLO')
+=> 'Hello'
+```
+
+**include** available only through _.str object, because Underscore has function with the same name.
+
+```javascript
+_.str.include("foobar", "ob")
+=> true
+```
+
+(removed) **includes** _.includes(string, substring)
+
+Tests if string contains a substring.
+
+```javascript
+_.includes("foobar", "ob")
+=> true
+```
+
+**includes** function was removed
+
+But you can create it in this way, for compatibility with previous versions:
+
+```javascript
+_.includes = _.str.include
+```
+
+**count** _.count(string, substring)
+
+```javascript
+_('Hello world').count('l')
+=> 3
+```
+
+**escapeHTML** _.escapeHTML(string)
+
+Converts HTML special characters to their entity equivalents.
+
+```javascript
+_('<div>Blah blah blah</div>').escapeHTML();
+=> '&lt;div&gt;Blah blah blah&lt;/div&gt;'
+```
+
+**unescapeHTML** _.unescapeHTML(string)
+
+Converts entity characters to HTML equivalents.
+
+```javascript
+_('&lt;div&gt;Blah blah blah&lt;/div&gt;').unescapeHTML();
+=> '<div>Blah blah blah</div>'
+```
+
+**insert** _.insert(string, index, substing)
+
+```javascript
+_('Hello ').insert(6, 'world')
+=> 'Hello world'
+```
+
+**isBlank** _.isBlank(string)
+
+```javascript
+_('').isBlank(); // => true
+_('\n').isBlank(); // => true
+_(' ').isBlank(); // => true
+_('a').isBlank(); // => false
+```
+
+**join** _.join(separator, *strings)
+
+Joins strings together with given separator
+
+```javascript
+_.join(" ", "foo", "bar")
+=> "foo bar"
+```
+
+**lines** _.lines(str)
+
+```javascript
+_.lines("Hello\nWorld")
+=> ["Hello", "World"]
+```
+
+**reverse** available only through _.str object, because Underscore has function with the same name.
+
+Return reversed string:
+
+```javascript
+_.str.reverse("foobar")
+=> 'raboof'
+```
+
+**splice**  _.splice(string, index, howmany, substring)
+
+Like a array splice.
+
+```javascript
+_('https://edtsech@bitbucket.org/edtsech/underscore.strings').splice(30, 7, 'epeli')
+=> 'https://edtsech@bitbucket.org/epeli/underscore.strings'
+```
+
+**startsWith** _.startsWith(string, starts)
+
+This method checks whether string starts with starts.
+
+```javascript
+_("image.gif").startsWith("image")
+=> true
+```
+
+**endsWith** _.endsWith(string, ends)
+
+This method checks whether string ends with ends.
+
+```javascript
+_("image.gif").endsWith("gif")
+=> true
+```
+
+**succ**  _.succ(str)
+
+Returns the successor to str.
+
+```javascript
+_('a').succ()
+=> 'b'
+
+_('A').succ()
+=> 'B'
+```
+
+**supplant**
+
+Supplant function was removed, use Underscore.js [template function][p].
+
+[p]: http://documentcloud.github.com/underscore/#template
+
+**strip** alias for *trim*
+
+**lstrip** alias for *ltrim*
+
+**rstrip** alias for *rtrim*
+
+**titleize** _.titleize(string)
+
+```javascript
+_('my name is epeli').titleize()
+=> 'My Name Is Epeli'
+```
+
+**camelize** _.camelize(string)
+
+Converts underscored or dasherized string to a camelized one. Begins with
+a lower case letter unless it starts with an underscore or string
+
+```javascript
+_('moz-transform').camelize()
+=> 'mozTransform'
+_('-moz-transform').camelize()
+=> 'MozTransform'
+```
+
+**classify** _.classify(string)
+
+Converts string to camelized class name. First letter is always upper case
+
+```javascript
+_('some_class_name').classify()
+=> 'SomeClassName'
+```
+
+**underscored** _.underscored(string)
+
+Converts a camelized or dasherized string into an underscored one
+
+```javascript
+_('MozTransform').underscored()
+=> 'moz_transform'
+```
+
+**dasherize** _.dasherize(string)
+
+Converts a underscored or camelized string into an dasherized one
+
+```javascript
+_('MozTransform').dasherize()
+=> '-moz-transform'
+```
+
+**humanize** _.humanize(string)
+
+Converts an underscored, camelized, or dasherized string into a humanized one.
+Also removes beginning and ending whitespace, and removes the postfix '_id'.
+
+```javascript
+_('  capitalize dash-CamelCase_underscore trim  ').humanize()
+=> 'Capitalize dash camel case underscore trim'
+```
+
+**trim** _.trim(string, [characters])
+
+trims defined characters from begining and ending of the string.
+Defaults to whitespace characters.
+
+```javascript
+_.trim("  foobar   ")
+=> "foobar"
+
+_.trim("_-foobar-_", "_-")
+=> "foobar"
+```
+
+
+**ltrim** _.ltrim(string, [characters])
+
+Left trim. Similar to trim, but only for left side.
+
+
+**rtrim** _.rtrim(string, [characters])
+
+Right trim. Similar to trim, but only for right side.
+
+**truncate** _.truncate(string, length, truncateString)
+
+```javascript
+_('Hello world').truncate(5)
+=> 'Hello...'
+
+_('Hello').truncate(10)
+=> 'Hello'
+```
+
+**prune** _.prune(string, length, pruneString)
+
+Elegant version of truncate.
+Makes sure the pruned string does not exceed the original length.
+Avoid half-chopped words when truncating.
+
+```javascript
+_('Hello, world').prune(5)
+=> 'Hello...'
+
+_('Hello, world').prune(8)
+=> 'Hello...'
+
+_('Hello, world').prune(5, ' (read a lot more)')
+=> 'Hello, world' (as adding "(read a lot more)" would be longer than the original string)
+
+_('Hello, cruel world').prune(15)
+=> 'Hello, cruel...'
+
+_('Hello').prune(10)
+=> 'Hello'
+```
+
+**words** _.words(str, delimiter=/\s+/)
+
+Split string by delimiter (String or RegExp), /\s+/ by default.
+
+```javascript
+_.words("   I   love   you   ")
+=> ["I","love","you"]
+
+_.words("I_love_you", "_")
+=> ["I","love","you"]
+
+_.words("I-love-you", /-/)
+=> ["I","love","you"]
+
+_.words("   ")
+=> []
+```
+
+**sprintf** _.sprintf(string format, *arguments)
+
+C like string formatting.
+Credits goes to [Alexandru Marasteanu][o].
+For more detailed documentation, see the [original page][o].
+
+[o]: http://www.diveintojavascript.com/projects/javascript-sprintf
+
+```javascript
+_.sprintf("%.1f", 1.17)
+"1.2"
+```
+
+**pad** _.pad(str, length, [padStr, type])
+
+pads the `str` with characters until the total string length is equal to the passed `length` parameter. By default, pads on the **left** with the space char (`" "`). `padStr` is truncated to a single character if necessary.
+
+```javascript
+_.pad("1", 8)
+-> "       1";
+
+_.pad("1", 8, '0')
+-> "00000001";
+
+_.pad("1", 8, '0', 'right')
+-> "10000000";
+
+_.pad("1", 8, '0', 'both')
+-> "00001000";
+
+_.pad("1", 8, 'bleepblorp', 'both')
+-> "bbbb1bbb";
+```
+
+**lpad** _.lpad(str, length, [padStr])
+
+left-pad a string. Alias for `pad(str, length, padStr, 'left')`
+
+```javascript
+_.lpad("1", 8, '0')
+-> "00000001";
+```
+
+**rpad** _.rpad(str, length, [padStr])
+
+right-pad a string. Alias for `pad(str, length, padStr, 'right')`
+
+```javascript
+_.rpad("1", 8, '0')
+-> "10000000";
+```
+
+**lrpad** _.lrpad(str, length, [padStr])
+
+left/right-pad a string. Alias for `pad(str, length, padStr, 'both')`
+
+```javascript
+_.lrpad("1", 8, '0')
+-> "00001000";
+```
+
+**center** alias for **lrpad**
+
+**ljust** alias for *rpad*
+
+**rjust** alias for *lpad*
+
+**toNumber**  _.toNumber(string, [decimals])
+
+Parse string to number. Returns NaN if string can't be parsed to number.
+
+```javascript
+_('2.556').toNumber()
+=> 3
+
+_('2.556').toNumber(1)
+=> 2.6
+```
+
+**strRight**  _.strRight(string, pattern)
+
+Searches a string from left to right for a pattern and returns a substring consisting of the characters in the string that are to the right of the pattern or all string if no match found.
+
+```javascript
+_('This_is_a_test_string').strRight('_')
+=> "is_a_test_string";
+```
+
+**strRightBack**  _.strRightBack(string, pattern)
+
+Searches a string from right to left for a pattern and returns a substring consisting of the characters in the string that are to the right of the pattern or all string if no match found.
+
+```javascript
+_('This_is_a_test_string').strRightBack('_')
+=> "string";
+```
+
+**strLeft**  _.strLeft(string, pattern)
+
+Searches a string from left to right for a pattern and returns a substring consisting of the characters in the string that are to the left of the pattern or all string if no match found.
+
+```javascript
+_('This_is_a_test_string').strLeft('_')
+=> "This";
+```
+
+**strLeftBack**  _.strLeftBack(string, pattern)
+
+Searches a string from right to left for a pattern and returns a substring consisting of the characters in the string that are to the left of the pattern or all string if no match found.
+
+```javascript
+_('This_is_a_test_string').strLeftBack('_')
+=> "This_is_a_test";
+```
+
+**stripTags**
+
+Removes all html tags from string.
+
+```javascript
+_('a <a href="#">link</a>').stripTags()
+=> 'a link'
+
+_('a <a href="#">link</a><script>alert("hello world!")</script>').stripTags()
+=> 'a linkalert("hello world!")'
+```
+
+**toSentence**  _.toSentence(array, [delimiter, lastDelimiter])
+
+Join an array into a human readable sentence.
+
+```javascript
+_.toSentence(['jQuery', 'Mootools', 'Prototype'])
+=> 'jQuery, Mootools and Prototype';
+
+_.toSentence(['jQuery', 'Mootools', 'Prototype'], ', ', ' unt ')
+=> 'jQuery, Mootools unt Prototype';
+```
+
+**toSentenceSerial**  _.toSentenceSerial(array, [delimiter, lastDelimiter])
+
+The same as `toSentence`, but adjusts delimeters to use [Serial comma](http://en.wikipedia.org/wiki/Serial_comma).
+
+```javascript
+_.toSentenceSerial(['jQuery', 'Mootools'])
+=> 'jQuery and Mootools';
+
+_.toSentenceSerial(['jQuery', 'Mootools', 'Prototype'])
+=> 'jQuery, Mootools, and Prototype'
+
+_.toSentenceSerial(['jQuery', 'Mootools', 'Prototype'], ', ', ' unt ');
+=> 'jQuery, Mootools, unt Prototype';
+```
+
+**repeat** _.repeat(string, count, [separator])
+
+Repeats a string count times.
+
+```javascript
+_.repeat("foo", 3)
+=> 'foofoofoo';
+
+_.repeat("foo", 3, "bar")
+=> 'foobarfoobarfoo'
+```
+
+**surround** _.surround(string, wrap)
+
+Surround a string with another string.
+
+```javascript
+_.surround("foo", "ab")
+=> 'abfooab';
+```
+
+**quote** _.quote(string, quoteChar) or _.q(string, quoteChar)
+
+Quotes a string. `quoteChar` defaults to `"`.
+
+```javascript
+_.quote('foo', quoteChar)
+=> '"foo"';
+```
+**unquote** _.unquote(string, quoteChar)
+
+Unquotes a string. `quoteChar` defaults to `"`.
+
+```javascript
+_.unquote('"foo"')
+=> 'foo';
+_.unquote("'foo'", "'")
+=> 'foo';
+```
+
+
+**slugify** _.slugify(string)
+
+Transform text into a URL slug. Replaces whitespaces, accentuated, and special characters with a dash.
+
+```javascript
+_.slugify("Un éléphant à l'orée du bois")
+=> 'un-elephant-a-loree-du-bois';
+```
+
+***Caution: this function is charset dependent***
+
+**naturalCmp** array.sort(_.naturalCmp)
+
+Naturally sort strings like humans would do.
+
+```javascript
+['foo20', 'foo5'].sort(_.naturalCmp)
+=> [ 'foo5', 'foo20' ]
+```
+
+**toBoolean** _.toBoolean(string) or _.toBool(string)
+
+Turn strings that can be commonly considered as booleas to real booleans. Such as "true", "false", "1" and "0". This function is case insensitive.
+
+```javascript
+_.toBoolean("true")
+=> true
+_.toBoolean("FALSE")
+=> false
+_.toBoolean("random")
+=> undefined
+```
+
+It can be customized by giving arrays of truth and falsy value matcher as parameters. Matchers can be also RegExp objects.
+
+```javascript
+_.toBoolean("truthy", ["truthy"], ["falsy"])
+=> true
+_.toBoolean("true only at start", [/^true/])
+=> true
+```
+
+## Roadmap ##
+
+Any suggestions or bug reports are welcome. Just email me or more preferably open an issue.
+
+#### Problems
+
+We lose two things for `include` and `reverse` methods from `_.string`:
+
+* Calls like `_('foobar').include('bar')` aren't available;
+* Chaining isn't available too.
+
+But if you need this functionality you can create aliases for conflict functions which will be convenient for you:
+
+```javascript
+_.mixin({
+    includeString: _.str.include,
+    reverseString: _.str.reverse
+})
+
+// Now wrapper calls and chaining are available.
+_('foobar').chain().reverseString().includeString('rab').value()
+```
+
+#### Standalone Usage
+
+If you are using Underscore.string without Underscore. You also have `_.string` namespace for it and `_.str` alias
+But of course you can just reassign `_` variable with `_.string`
+
+```javascript
+_ = _.string
+```
+
+## Changelog ##
+
+### 2.4.0 ###
+
+* Move from rake to gulp
+* Add support form classify camelcase strings
+* Fix bower.json
+* [Full changelog](https://github.com/epeli/underscore.string/compare/v2.3.3...2.4.0)
+
+### 2.3.3 ###
+
+* Add `toBoolean`
+* Add `unquote`
+* Add quote char option to `quote`
+* Support dash-separated words in `titleize`
+* [Full changelog](https://github.com/epeli/underscore.string/compare/v2.3.2...2.3.3)
+
+### 2.3.2 ###
+
+* Add `naturalCmp`
+* Bug fix to `camelize`
+* Add ă, ș, ț and ś to `slugify`
+* Doc updates
+* Add support for [component](http://component.io/)
+* [Full changelog](https://github.com/epeli/underscore.string/compare/v2.3.1...v2.3.2)
+
+### 2.3.1 ###
+
+* Bug fixes to `escapeHTML`, `classify`, `substr`
+* Faster `count`
+* Documentation fixes
+* [Full changelog](https://github.com/epeli/underscore.string/compare/v2.3.0...v2.3.1)
+
+### 2.3.0 ###
+
+* Added `numberformat` method
+* Added `levenshtein` method (Levenshtein distance calculation)
+* Added `swapCase` method
+* Changed default behavior of `words` method
+* Added `toSentenceSerial` method
+* Added `surround` and `quote` methods
+
+### 2.2.1 ###
+
+* Same as 2.2.0 (2.2.0rc on npm) to fix some npm drama
+
+### 2.2.0 ###
+
+* Capitalize method behavior changed
+* Various perfomance tweaks
+
+### 2.1.1###
+
+* Fixed words method bug
+* Added classify method
+
+### 2.1.0 ###
+
+* AMD support
+* Added toSentence method
+* Added slugify method
+* Lots of speed optimizations
+
+### 2.0.0 ###
+
+* Added prune, humanize functions
+* Added _.string (_.str) namespace for Underscore.string library
+* Removed includes function
+
+For upgrading to this version you need to mix in Underscore.string library to Underscore object:
+
+```javascript
+_.mixin(_.string.exports());
+```
+
+and all non-conflict Underscore.string functions will be available through Underscore object.
+Also function `includes` has been removed, you should replace this function by `_.str.include`
+or create alias `_.includes = _.str.include` and all your code will work fine.
+
+### 1.1.6 ###
+
+* Fixed reverse and truncate
+* Added isBlank, stripTags, inlude(alias for includes)
+* Added uglifier compression
+
+### 1.1.5 ###
+
+* Added strRight, strRightBack, strLeft, strLeftBack
+
+### 1.1.4 ###
+
+* Added pad, lpad, rpad, lrpad methods and aliases center, ljust, rjust
+* Integration with Underscore 1.1.6
+
+### 1.1.3 ###
+
+* Added methods: underscored, camelize, dasherize
+* Support newer version of npm
+
+### 1.1.2 ###
+
+* Created functions: lines, chars, words functions
+
+### 1.0.2 ###
+
+* Created integration test suite with underscore.js 1.1.4 (now it's absolutely compatible)
+* Removed 'reverse' function, because this function override underscore.js 'reverse'
+
+## Contribute ##
+
+* Fork & pull request. Don't forget about tests.
+* If you planning add some feature please create issue before.
+
+Otherwise changes will be rejected.
+
+## Contributors list ##
+[Can be found here](https://github.com/epeli/underscore.string/graphs/contributors).
+
+
+## Licence ##
+
+The MIT License
+
+Copyright (c) 2011 Esa-Matti Suuronen esa-matti@suuronen.org
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - underscore@1.7.0
+
+This package contains the following license and notice below:
+
+Copyright (c) 2009-2014 Jeremy Ashkenas, DocumentCloud and Investigative
+Reporters & Editors
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - xml-mapping@1.7.2
+
+This package contains the following license and notice below:
+
+Copyright 2013 Nicolas Thouvenin <nthouvenin@gmail.com>
+
+This project is free software released under the MIT/X11 license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - xml-writer@1.7.0
+
+This package contains the following license and notice below:
+
+Copyright 2011 Nicolas Thouvenin <nthouvenin@gmail.com>
+
+This project is free software released under the MIT/X11 license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-----------
+
+The following NPM package may be included in this product:
+
+ - zone.js@0.11.5
+
+This package contains the following license and notice below:
+
+The MIT License
+
+Copyright (c) 2010-2022 Google LLC. https://angular.io/license
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-----------
+
+This file was generated with generate-license-file! https://www.npmjs.com/package/generate-license-file
