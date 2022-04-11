@@ -15,7 +15,17 @@
  ### Link to website
  [link] (https://2bweru.github.io/Quotes/)
 
+## Project setup instructions
+- Create a new workspace and initial application project.
+  - Run the command [ng new] {project name}
+- Run [ng serve ] command to serve the application.
+- Create Angular Components,directives etc.anges to project.
+- Make changes to your project
  ## License
+### The MIT License
+
+### Copyright (c) 2010-2022 Google LLC. http://angular.io/license
+
 
  ## Contact Info
  ### For future inquiries you can contact me at:
