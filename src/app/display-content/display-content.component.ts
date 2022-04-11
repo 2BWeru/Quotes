@@ -11,6 +11,8 @@ export class DisplayContentComponent implements OnInit {
   @Input() quote!: Quote;
   @Output() isComplete = new EventEmitter<boolean>();
 
+  count=0;
+
   quoteDelete(complete:boolean){
     this.isComplete.emit(complete);
   }

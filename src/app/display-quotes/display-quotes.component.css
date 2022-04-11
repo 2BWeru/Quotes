@@ -1,5 +1,5 @@
 #words{
-    border:3px solid red;
+    border:7px solid red;
     
     
 }
@@ -8,4 +8,15 @@
 }
 #content{
     text-align: center;
+    background-color: ghostwhite;
+    border:1px solid pink;
+    padding: 100px;
+    margin: auto;
+    padding-top: 10px;
+    font-family: 'Pangolin', cursive;
+    font-size: large;
+}
+h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(238, 137, 230);
 }

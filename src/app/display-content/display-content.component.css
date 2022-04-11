@@ -13,3 +13,10 @@ h6{
     font-style:italic;
     color:salmon;
 }
+button{
+    background-color:rgb(217, 198, 198);
+}
+#btn-del{
+    background-color: bisque;
+    color: black;
+}

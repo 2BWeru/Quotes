@@ -1,5 +1,4 @@
-<p>form-quotes works!</p>
-<p>{{place}}</p>
+
 
 <div class="container">
     <form #userModel="ngForm" (ngSubmit)="onSubmit()">
@@ -23,7 +22,7 @@
     <div class="quote">
         <label for="Quote">Write your Quote </label>
            <br>
-        <textarea rows="4" ngModel name="quote" id="quote"placeholder="Quote..."
+        <textarea rows="1" ngModel name="quote" id="quote"placeholder="Quote..."
             [(ngModel)]="newQuote.about" name="about" #about="ngModel" required="">
         </textarea>
         <div [hidden]="about.valid || about.pristine" class="alert alert-danger">
@@ -31,7 +30,7 @@
         </div>
     </div>
     <div class="btn">
-        <button type="submit" class="btn btn-success">Add Quote</button>
+        <button type="submit" class="btn btn-info">Add Quote</button>
      </div>
      <br>
      

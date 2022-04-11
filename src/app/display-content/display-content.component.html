@@ -1,31 +1,27 @@
-<html ng-app>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<p>Works</p>
 <div>
 <h6>{{quote.name}}</h6>
 <h6>{{quote.aurthor}}</h6>
 <br>
+<div ng-controller="myCont">
 <div class="row">
   <div class="col">
-    <button type="button" class="btn btn-default btn-sm" ng-click="count = count+ 1" ng-init="count =0">
+    <button type="button"  class="btn btn-default btn-sm" ng-click="count=count+1" ng-init="count=0">
       <img src="/assets/Image/thumbs-up-2-.png" alt="like" width="20px" height="20px">
     </button>
-    <p>likes:</p>
+    <p>{{count}}</p>
   </div>
   <br>
-  <div class="col" ng-controller="myController">
-    <button id= btn-dlike type="button"  class="btn btn-default btn-sm" ng-click="myCounts()">
+  <div class="col" >
+    <button id= btn-dlike type="button"  class="btn btn-default btn-sm" ng-click="count=count+1" ng-init="count=0">
       <img src="/assets/Image/thumbs-down-.png" alt="dislike" width="20px" height="20px">
     </button>
-    <p>dislikes:</p>
+    <p>{{count}}</p>
   </div>
 </div>
 <button id="btn-del" type="button" (click)='quoteDelete(true)'>Delete</button>
-  
-  
 </div>
 <br>
 <br>
+</div>
+<hr>
 
-
-</html>
