@@ -7,34 +7,39 @@ import { Quote } from '../quote';
   styleUrls: ['./display-quotes.component.css']
 })
 export class DisplayQuotesComponent implements OnInit {
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+   
   }
  
   quotes:Quote[] = [
-    new Quote (1,'Everyone lives by selling something','Jessica','Robert Louis Stevenson'),
+     {id: 3, about: 'I would rather regret the things I have done than regret the things I have not done.', name: 'Becky', aurthor: 'Lucille Ball'},
 
-   new Quote(1,'I would rather regret the things I have done than regret the things I have not done.','Becky','Lucille Ball'),
+     {id:2, about: 'Everyone lives by selling something' ,name : 'Jessica', aurthor: 'Robert Louis Stevenson' },
 
-   new Quote(1,'The key to life is accepting challenges. Once someone stops doing this, he is dead','Andrew','Bette Davis'),
+     {id: 3, about: 'The key to life is accepting challenges. Once someone stops doing this, he is dead', name: 'Andrew', aurthor: 'Bette Davis' },
 
-    new Quote(1,'Formula for success: rise early, work hard, strike oil', 'Jamal','J. Paul Getty'),
+     {id: 4, about: 'Formula for success: rise early, work hard, strike oil', name: 'Jamal', aurthor: 'J. Paul Getty'},
 
-    new Quote(1,'You can waste your lives drawing lines. Or you can live your life crossing them.','Shanice','Shonda Rhimes')
+     {id: 5, about: 'You can waste your lives drawing lines. Or you can live your life crossing them.', name: 'Shanice', aurthor: 'Shonda Rhimes' }
   
   ];
     
   addNewQuote(quotes: Quote){
     let quoteLength = this.quotes.length;
     quotes.id = quoteLength+1;
-    this.quotes.push(quotes)
+    this.quotes.push(quotes);
+    let toAdd = confirm(`\n Quote added Successfully !!\n Check it out`);
+
   }
+
   deleteQuote(isComplete: any, index: number){
     if (isComplete) {
       let toDelete = confirm(`Are you sure you want to delete ${this.quotes[index].name}?`);
     
       if (toDelete){
-        this.quotes.splice(index,1)
+        this.quotes.splice(index,1);
+      
     }
   }
   }

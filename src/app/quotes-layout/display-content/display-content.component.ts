@@ -1,5 +1,5 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
-import { Quote } from '../quote';
+import { Quote } from '../../quote';
 
 @Component({
   selector: 'app-display-content',
@@ -11,18 +11,7 @@ export class DisplayContentComponent implements OnInit {
   @Input() quote!: Quote;
   @Output() isComplete = new EventEmitter<boolean>();
 
-  count:number=0;
-
-  dislike:number=0;
-
-  likeButton(){
-   this.count++;
-   
-  };
-
-  dislikeButton(){
-   this.dislike++;
-  }
+  count=0;
 
   quoteDelete(complete:boolean){
     this.isComplete.emit(complete);

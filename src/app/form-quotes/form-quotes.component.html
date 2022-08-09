@@ -18,6 +18,13 @@
             <p>Author's name is required</p>
         </div>
         </div>
+        <!-- <div class="col">
+            <input type="date" class="form-control" value=""  id="date" placeholder="Date" aria-label="Date"
+            [(ngModel)]="newQuote" name="date" #name="ngModel" required="">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                <p>Date</p>
+            </div>
+        </div> -->
     </div>
     <div class="quote">
         <label for="Quote">Write your Quote </label>
@@ -30,9 +37,12 @@
         </div>
     </div>
     <div class="btn">
-        <button type="submit" class="btn btn-info">Add Quote</button>
+        <button type="submit" class="btn btn-info" >Add Quote</button>
+        <br>
+        <!-- <p |date|timeAgo></p> -->
      </div>
      <br>
+     
      
     
     </form>

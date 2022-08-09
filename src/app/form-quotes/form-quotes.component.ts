@@ -10,8 +10,9 @@ import { Quote} from '../quote';
 })
 export class FormQuotesComponent implements OnInit {
    place = 'Next'
- 
-   newQuote = new Quote(0,"","","",);
+  dateObj = new Date;
+  
+   newQuote = new Quote();
    @Output() addQuote = new EventEmitter<Quote>();
 
   onSubmit(){

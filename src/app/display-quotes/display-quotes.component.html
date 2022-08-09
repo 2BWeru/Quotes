@@ -1,21 +1,22 @@
 <div class="container">
-  <div class="wrapper">
-  <!-- form component -->
-   <app-form-quotes (addQuote)="addNewQuote($event)"></app-form-quotes>
-  </div>
+  <app-form-quotes (addQuote)="addNewQuote($event)"></app-form-quotes>
 </div>
+ 
+
 
 <div class="container" id="content">
   <div id="wrap">
   <h2>Quotes by Wammy...</h2>
+  
+     <div *ngFor="let quote of quotes;let i=index">
+       <!-- In the div we have created, we have added a loop logic,let i = index to register the index of each quote item in the quotes list. -->
+  <div class="title">{{quote.about}}</div>
   <br>
-  <hr>
-    <!-- class="border borsder-secondary" id  -->
-   <br> 
-     <div *ngFor="let quote of quotes">
-  <div>{{quote.about}}</div>
-   <app-display-content [quote]='quote' (isComplete) = 'deleteQuote($event,1)'></app-display-content>
+   <app-display-content [quote]='quote' (isComplete) = 'deleteQuote($event,i)'></app-display-content>
   </div>
+  <!--  -->
+  <br>
+  
     </div>
   </div>
   
@@ -23,7 +24,10 @@
 
   
 
+<div class="box">
+  
 
+</div>
  <!-- <p *ngIf='quotes.length > 5'> Your quotes are too many</p>  -->
 
 

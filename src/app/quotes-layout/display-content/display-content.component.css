@@ -1,0 +1,23 @@
+#btn-del{
+    color: aqua;
+    background-color: blue;
+}
+p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+    
+}
+h6{
+    font-family: 'Courier New', Courier, monospace;
+    font-size:medium;
+    font-weight:600;
+    font-style:italic;
+    color:salmon;
+}
+button{
+    background-color:rgb(217, 198, 198);
+}
+#btn-del{
+    background-color: bisque;
+    color: black;
+}
